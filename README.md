@@ -1,2 +1,2 @@
-# salahemam.github.io
-This is my personal website
+# MyCVWebProject
+This is my CV template web application

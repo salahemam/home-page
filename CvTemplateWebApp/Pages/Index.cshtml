@@ -1,0 +1,310 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Salah Emam CV " + DateTime.Now.ToShortDateString();
+    Layout = null;
+}
+
+<link href="~/css/site.css" rel="stylesheet" />
+
+<table class="custom-table" border="1">
+    <tbody>
+        <tr>
+            <td class="left-side">
+                <!--profile-->
+                <table class="custom-table" border="1">
+                    <tbody>
+                        <tr>
+                            <td class="profile"><img src="~/images/profile2.jpg" alt="profile image" width="150" height="100" /></td>
+                        </tr>
+
+                        <tr>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--contacts-->
+                <table class="custom-table" border="1">
+                    <tbody>
+                        <tr>
+                            <td>
+                                CONTACT
+                                <hr />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Address</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Shoubra Elkhema</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Phone</strong></td>
+                        </tr>
+                        <tr>
+                            <td>01001018750</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Email</strong></td>
+                        </tr>
+                        <tr>
+                            <td>goldencap2009@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td><strong>LinkedIn</strong></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://www.linkedin.com/in/salah-emam">/salah-emam</a></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--personal-->
+                <table class="custom-table" border="1">
+                    <tbody>
+                        <tr>
+                            <td>
+                                PERSONAL
+                                <hr />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Birthdate</strong></td>
+                        </tr>
+                        <tr>
+                            <td>01 May 1988</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Marital Status</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Married</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Military Status</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Excempted</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--personal skills-->
+                <table class="custom-table" border="1">
+                    <tbody>
+                        <tr>
+                            <td>
+                                PERSONAL SKILLS
+                                <hr />
+                            </td>
+                        </tr>
+                        @foreach (var per in Model.PersonalSkills)
+                        {
+                        <tr>
+                            <td>@per</td>
+                        </tr>
+                        }
+                        <tr>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--others-->
+                <table class="custom-table" border="1">
+                    <tbody>
+                        <tr>
+                            <td>
+                                LANGUAGES
+                                <hr />
+                            </td>
+                        </tr>
+                        @foreach (var lang in Model.Languages)
+                        {
+                        <tr>
+                            <td>@lang</td>
+                        </tr>
+                        }
+
+
+                        <tr>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+
+            <td class="middle-side"></td>
+
+            <td>
+                <!--profile-->
+                <table class="custom-table" border="1">
+                    <tbody>
+                        <tr>
+
+                            <td class="name">Salah Emam</td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                @Model.CareerSummary
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--Education-->
+                <table class="custom-table" border="1">
+                    <thead>
+                        <tr>
+                            <td class="header">
+                                EDUCATION
+                                <hr />
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var edu in Model.Educations)
+                        {
+                        <tr>
+                            <td class="title">@edu.Place</td>
+                        </tr>
+                        <tr>
+                            <td>@edu.FromYear - @edu.ToYear </td>
+                        </tr>
+                        <tr>
+                            <td>@edu.Speciality</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                <!--Experience-->
+                <table class="custom-table" border="1">
+                    <thead>
+                        <tr>
+                            <td class="header">
+                                WORK EXPERIENCE
+                                <hr />
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var exp in Model.WorkExperience)
+                        {
+                        <tr>
+                            <td class="title">@exp.Position</td>
+                        </tr>
+                        <tr>
+                            <td>@exp.Company | @exp.FromDate to @exp.ToDate </td>
+                        </tr>
+                        <tr>
+                            <td>@exp.Description</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                <!--Projects-->
+                <table class="custom-table" border="1">
+                    <thead>
+                        <tr>
+                            <td class="header">
+                                PROJECTS
+                                <hr />
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var proj in Model.Projects)
+                        {
+                        <tr>
+                            <td class="title">@proj.Title <span>(@proj.Tools)</span></td>
+                        </tr>
+                        @*<tr>
+                                <td>@proj.Tools</td>
+                            </tr>*@
+                        <tr>
+                            <td>@proj.Description</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                <!--Technical Skills-->
+                <table class="custom-table" border="1">
+                    <thead>
+                        <tr>
+                            <td class="header">
+                                TECHNICAL SKILLS
+                                <hr />
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>@string.Join(" | ", Model.TechnicalSkills)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--Courses-->
+                <table class="custom-table" border="1">
+                    <thead>
+                        <tr>
+                            <td class="header">
+                                COURSES
+                                <hr />
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var cou in Model.Courses)
+                        {
+
+
+                        <tr>
+                            @if (cou.IsOnline)
+                                {
+                            <td class="title">@cou.Title | Online</td>
+                                }
+                                else
+                                {
+                            <td class="title">@cou.Title</td>
+                                }
+                        </tr>
+                        <tr>
+                            <td>@cou.Place | @cou.Date </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                <!--Certificates-->
+                <table class="custom-table" border="1">
+                    <thead>
+                        <tr>
+                            <td class="header">
+                                CERTIFICATES
+                                <hr />
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var cert in Model.Certificates)
+                        {
+                        <tr>
+                            <td class="title">@cert.Title</td>
+                        </tr>
+                        <tr>
+                            <td>@cert.Place | @cert.Date </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td class="middle-side"></td>
+            <td>&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
